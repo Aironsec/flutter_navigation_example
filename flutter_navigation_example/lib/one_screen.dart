@@ -26,14 +26,14 @@ class BodyOneScreen extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'This is boss page',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
-            onPressed: null,
-            child: Text(
+            onPressed: (() => Navigator.pushNamed(context, '/TwoScreen')),
+            child: const Text(
               'Go to pege two',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),

@@ -34,7 +34,7 @@ class BodyOneScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: null,
             child: Text(
-              'Go pege one',
+              'Go to pege two',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),

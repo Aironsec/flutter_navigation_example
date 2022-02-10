@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_navigation_example/two_screen.dart';
 
 class OneScreen extends StatelessWidget {
   const OneScreen({Key? key}) : super(key: key);
@@ -26,14 +27,18 @@ class BodyOneScreen extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'This is boss page',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
-            onPressed: null,
-            child: Text(
+            onPressed: (() {
+              MaterialPageRoute route =
+                  MaterialPageRoute(builder: (context) => const TwoScreen());
+              Navigator.push(context, route);
+            }),
+            child: const Text(
               'Go to pege two',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),

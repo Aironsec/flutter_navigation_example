@@ -27,14 +27,14 @@ class BodyTwoScreen extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'This is two page',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
-            onPressed: null,
-            child: Text(
+            onPressed: (() => Navigator.pop(context)),
+            child: const Text(
               'Go to page boss',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),

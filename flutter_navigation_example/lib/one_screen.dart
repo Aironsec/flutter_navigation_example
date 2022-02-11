@@ -32,7 +32,10 @@ class BodyOneScreen extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
-            onPressed: (() => Navigator.pushNamed(context, '/TwoScreen')),
+            onPressed: (() {
+              Data data = Data('HI TWO SCREEN', 'tratsfer data of one screen');
+              Navigator.pushNamed(context, '/TwoScreen', arguments: data);
+            }),
             child: const Text(
               'Go to pege two',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -42,4 +45,11 @@ class BodyOneScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class Data {
+  final String textAppBar;
+  final String textBody;
+
+  Data(this.textAppBar, this.textBody);
 }

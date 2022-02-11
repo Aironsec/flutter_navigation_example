@@ -34,8 +34,9 @@ class BodyOneScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: (() {
-              MaterialPageRoute route =
-                  MaterialPageRoute(builder: (context) => const TwoScreen());
+              User user = User(name: 'Sergey', age: 40);
+              MaterialPageRoute route = MaterialPageRoute(
+                  builder: (context) => TwoScreen(user: user));
               Navigator.push(context, route);
             }),
             child: const Text(
@@ -47,4 +48,11 @@ class BodyOneScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class User {
+  final String name;
+  final int age;
+
+  User({required this.name, required this.age});
 }

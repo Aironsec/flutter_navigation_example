@@ -9,12 +9,11 @@ class TwoScreen extends StatelessWidget {
     final args = ModalRoute.of(context)?.settings.arguments as Data;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            args.textAppBar,
-            style: const TextStyle(fontSize: 15),
-          ),
+        title: Text(
+          args.textAppBar,
+          style: const TextStyle(fontSize: 15),
         ),
+        centerTitle: true,
       ),
       body: const BodyTwoScreen(),
     );

@@ -14,9 +14,16 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       title: 'Navigation example',
       home: const OneScreen(),
-      // initialRoute: '/TwoScreen', //при старте открыть нужный экран "/" - конень
-      routes: {
-        '/TwoScreen': (context) => const TwoScreen(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case "/":
+            return MaterialPageRoute(builder: (context) => const OneScreen());
+          case "/TwoScreen":
+            Data data = settings.arguments as Data;
+            return MaterialPageRoute(
+                builder: (context) => TwoScreen(data: data));
+        }
+        return null;
       },
     );
   }

@@ -2,37 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_navigation_example/one_screen.dart';
 
 class TwoScreen extends StatelessWidget {
-  const TwoScreen({Key? key}) : super(key: key);
+  final Data data;
+  const TwoScreen({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as Data;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          args.textAppBar,
+          data.textAppBar,
           style: const TextStyle(fontSize: 15),
         ),
         centerTitle: true,
       ),
-      body: const BodyTwoScreen(),
+      body: BodyTwoScreen(textBody: data.textBody),
     );
   }
 }
 
 class BodyTwoScreen extends StatelessWidget {
-  const BodyTwoScreen({Key? key}) : super(key: key);
+  final String textBody;
+  const BodyTwoScreen({Key? key, required this.textBody}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as Data;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            args.textBody,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            textBody,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
             onPressed: (() => Navigator.pop(context)),

@@ -35,7 +35,10 @@ class BodyTwoScreen extends StatelessWidget {
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
-            onPressed: (() => Navigator.pop(context)),
+            onPressed: (() {
+              String backData = 'text to screen two';
+              Navigator.pop(context, backData);
+            }),
             child: const Text(
               'Go to page boss',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

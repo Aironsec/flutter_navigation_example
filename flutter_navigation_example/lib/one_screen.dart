@@ -18,8 +18,15 @@ class OneScreen extends StatelessWidget {
   }
 }
 
-class BodyOneScreen extends StatelessWidget {
+class BodyOneScreen extends StatefulWidget {
   const BodyOneScreen({Key? key}) : super(key: key);
+
+  @override
+  State<BodyOneScreen> createState() => _BodyOneScreenState();
+}
+
+class _BodyOneScreenState extends State<BodyOneScreen> {
+  String text = 'This is boss page';
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +34,13 @@ class BodyOneScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'This is boss page',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           ElevatedButton(
             onPressed: (() {
-              Data data = Data('HI TWO SCREEN', 'tratsfer data of one screen');
-              Navigator.pushNamed(context, '/TwoScreen', arguments: data);
+              _returnDataFromTwoScreen(context);
             }),
             child: const Text(
               'Go to pege two',
@@ -44,6 +50,16 @@ class BodyOneScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _returnDataFromTwoScreen(BuildContext context) async {
+    Data data = Data('HI TWO SCREEN', 'tratsfer data of one screen');
+    final result =
+        await Navigator.pushNamed(context, '/TwoScreen', arguments: data);
+
+    setState(() {
+      text = result != null ? result as String : "No text";
+    });
   }
 }
 
